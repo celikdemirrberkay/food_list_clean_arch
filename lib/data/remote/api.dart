@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 
 //TODOS: Get normal menu usage. We take the value but we dont use it
 //TODOS: Get vegie menu
+//TODOS: Add model like --> Food
 
 /// API service for fetching html data
 class APIService {
