@@ -1,19 +1,18 @@
 
 # Marmara Food List
 
-The project I am trying to make the food list of our school according to clean architecture. (Continues)
-
+The application where I pulled the food list from Marmara University's website and tried to apply clean architecture.
 
 
 ## Used Dependencies
 
 - Dart Vader
 - Lottie
-- HTTP 
-- HTML 
+- HTTP
+- HTML
 - Get It
 
-  
+
 ## Project Structure
 - Core
     - Constants
@@ -22,9 +21,9 @@ The project I am trying to make the food list of our school according to clean a
     - Widgets
 - Data
     - Dependency Injection
-    - Remote 
+    - Remote
     - Repository
-- Domain 
+- Domain
     - Repository
     - Use Cases
 - Presentation
@@ -34,4 +33,3 @@ The project I am trying to make the food list of our school according to clean a
     - Widgets
 
 
-  
