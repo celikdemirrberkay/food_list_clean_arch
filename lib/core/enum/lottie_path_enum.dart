@@ -1,4 +1,4 @@
-/// Enım for lottie path
+/// Enum for lottie path
 enum LottiePath {
   /// Main page lottie path
   main,

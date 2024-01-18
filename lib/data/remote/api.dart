@@ -1,6 +1,10 @@
 import 'package:food_list/core/constants/network_constants.dart';
+import 'package:food_list/core/enum/html_selector_enum.dart';
 import 'package:html/dom.dart' as dom;
 import 'package:http/http.dart' as http;
+
+//TODOS: Get normal menu usage. We take the value but we dont use it
+//TODOS: Get vegie menu
 
 /// API service for fetching html data
 class APIService {
@@ -14,11 +18,7 @@ class APIService {
 
     /// We take food title as a list and then we take the first element.
     /// ----> This is like ["Normal Menu"]
-    final foodTitle = html
-        .querySelectorAll('#wrapper > div > section.muContent > div > div > div > article > div > div:nth-child(1) > div:nth-child(1) > h4')
-        .map((e) => e.innerHtml.trim())
-        .toList()
-        .first;
+    final foodTitle = html.querySelectorAll(HtmlSelector.normalMenuName.value).map((e) => e.innerHtml.trim()).toList().first;
 
     return foodTitle;
   }
@@ -31,7 +31,7 @@ class APIService {
     final html = dom.Document.html(response.body);
 
     /// We take foods as a [List]
-    final foodsListTemp = html.querySelectorAll('.list-dashed>li').map((e) => e.innerHtml.trim()).toList();
+    final foodsListTemp = html.querySelectorAll(HtmlSelector.normalMenuList.value).map((e) => e.innerHtml.trim()).toList();
 
     /// Seperate foods and calories
     final foodsList = _parseMealsAndCaloriesAndTakeJustFoodNames(foodsListTemp);
