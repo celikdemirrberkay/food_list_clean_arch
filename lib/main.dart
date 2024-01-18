@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:food_list/core/constants/constants.dart';
-import 'package:food_list/presentation/view/main_view.dart';
+import 'package:food_list/data/dependencyinjection/injection_container.dart';
+import 'package:food_list/presentation/view/home_view.dart';
 
 Future<void> main() async {
+  await setup();
   runApp(const FoodList());
 }
 
@@ -20,7 +22,7 @@ class FoodList extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.marmaraBlue),
         useMaterial3: true,
       ),
-      home: MainView(),
+      home: HomeView(),
     );
   }
 }
