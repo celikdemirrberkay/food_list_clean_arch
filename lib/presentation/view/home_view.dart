@@ -48,7 +48,7 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
         ),
       );
 
-  /// [ListView]for food.
+  /// [FutureBuilder] for food list.
   Widget _foodListFutureBuilder() => Expanded(
         flex: 70,
         child: SizedBox(
@@ -63,7 +63,11 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
                 case ConnectionState.active:
                   return LoadingWidgets.circularProgressIndicator;
                 case ConnectionState.done:
-                  return _foodsListView(snapshot);
+                  if (snapshot.hasData) {
+                    return _foodsListView(snapshot.data!, snapshot.data!.length);
+                  } else {
+                    return ErrorWidgets.errorText;
+                  }
               }
             },
           ),
@@ -71,11 +75,11 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
       );
 
   /// [ListView] for food
-  Widget _foodsListView(AsyncSnapshot<List<String>> snapshot) {
+  Widget _foodsListView(List<String> title, int index) {
     return ListView.builder(
-      itemCount: snapshot.data?.length ?? 0,
+      itemCount: index,
       itemBuilder: (context, index) => _HomeViewListTile(
-        title: snapshot.data![index],
+        title: title[index],
       ),
     );
   }
