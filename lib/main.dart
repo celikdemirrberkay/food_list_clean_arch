@@ -22,7 +22,7 @@ class FoodList extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.marmaraBlue),
         useMaterial3: true,
       ),
-      home: HomeView(),
+      home: const HomeView(),
     );
   }
 }
