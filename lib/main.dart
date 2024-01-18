@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:food_list/core/constants/constants.dart';
-import 'package:food_list/data/dependencyinjection/injection_container.dart';
+import 'package:food_list/core/init/app_init.dart';
 import 'package:food_list/presentation/view/home_view.dart';
 
 Future<void> main() async {
-  await setup();
+  await AppInit.init();
   runApp(const FoodList());
 }
 

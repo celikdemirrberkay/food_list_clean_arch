@@ -14,7 +14,6 @@ class _MainViewListTileState extends State<_HomeViewListTile> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      //TODO: Must  be part part of
       title: Text(
         widget.title,
         style: context.openSans.copyWith(
