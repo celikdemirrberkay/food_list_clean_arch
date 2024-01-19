@@ -9,12 +9,15 @@ import 'package:http/http.dart' as http;
 
 /// API service for fetching html data
 class APIService {
+  APIService({required this.client});
+  final http.Client client;
+
   /// Fetch food list name.
   /// For ex. "Normal Menu"
   Future<String> getNormalMenuName() async {
     /// We take food list url and response
     final url = Uri.parse(NetworkConstants.foodListURI);
-    final response = await http.get(url);
+    final response = await client.get(url);
     final html = dom.Document.html(response.body);
 
     /// We take food title as a list and then we take the first element.
@@ -28,7 +31,7 @@ class APIService {
   Future<List<String>> getFoodsListNormalMenu() async {
     /// We take food list url and response
     final url = Uri.parse(NetworkConstants.foodListURI);
-    final response = await http.get(url);
+    final response = await client.get(url);
     final html = dom.Document.html(response.body);
 
     /// We take foods as a [List]

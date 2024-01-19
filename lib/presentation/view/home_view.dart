@@ -1,5 +1,6 @@
 import 'package:dart_vader/dart_vader.dart';
 import 'package:flutter/material.dart';
+import 'package:food_list/core/constants/constants.dart';
 import 'package:food_list/core/enum/lottie_path_enum.dart';
 import 'package:food_list/core/extensions/context_extension.dart';
 import 'package:food_list/core/widgets/error_widgets.dart';
@@ -7,7 +8,10 @@ import 'package:food_list/core/widgets/loading_widgets.dart';
 import 'package:food_list/presentation/mixin/home_page_mixin.dart';
 import 'package:lottie/lottie.dart';
 
+import '../modelview/home_view_model.dart';
+
 part '../widgets/home_view_listtile.dart';
+part '../widgets/home_view_list_name.dart';
 
 @immutable
 
@@ -30,6 +34,7 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
           child: Column(
             children: [
               _mainPageLottie(),
+              _normalMenuName(),
               context.spacerWithFlex(flex: 5),
               _foodListFutureBuilder(),
             ],
@@ -38,6 +43,10 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
       ),
     );
   }
+
+  /// Normal menu name text.
+  /// Part of [HomeView]
+  Widget _normalMenuName() => _NormalMenuNameText(viewModel: viewModel);
 
   /// Main page lottie animation.
   Widget _mainPageLottie() => Expanded(
@@ -50,7 +59,7 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
 
   /// [FutureBuilder] for food list.
   Widget _foodListFutureBuilder() => Expanded(
-        flex: 70,
+        flex: 65,
         child: SizedBox(
           child: FutureBuilder(
             future: viewModel.getNormalFoodList(),
